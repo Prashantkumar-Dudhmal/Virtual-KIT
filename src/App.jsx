@@ -50,7 +50,7 @@ export default App;*/
 import { PlayerControls } from "./components/PlayerControls";
 import { Canvas } from "@react-three/fiber";
 import { Sky } from "@react-three/drei";
-
+import { BioTech } from "./components/BioTech";
 
 export default function App() {
   return (
@@ -58,10 +58,7 @@ export default function App() {
       <Sky />
       <ambientLight intensity={0.5} />
       <PlayerControls />
-      <mesh position={[0, -1, 0]}>
-        <boxGeometry args={[10, 0.1, 10]} />
-        <meshStandardMaterial color="green" />
-      </mesh>
+      <BioTech position={[0, -1, 0]} />
     </Canvas>
   );
 }

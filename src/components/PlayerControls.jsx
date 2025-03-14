@@ -16,27 +16,21 @@ export function PlayerControls() {
 
     if (keys["w"]) {
       direction.current.z -= 1;
-      console.log(camera.position);
     }
     if (keys["s"]) {
       direction.current.z += 1;
-      console.log(camera.position);
     }
     if (keys["a"]) {
       direction.current.x -= 1;
-      console.log(camera.position);
     }
     if (keys["d"]) {
       direction.current.x += 1;
-      console.log(camera.position);
     }
     if (keys["q"]) {
       direction.current.y += 1;
-      console.log(camera.position);
     }
     if (keys["e"]) {
       direction.current.y -= 1;
-      console.log(camera.position);
     }
 
     direction.current.normalize();
@@ -44,7 +38,8 @@ export function PlayerControls() {
     // Move in the direction the camera is facing
     const movement = new THREE.Vector3();
     camera.getWorldDirection(movement);
-    if (movement.y < 0) movement.y = 0; // Lock movement to ground plane
+    //console.log(movement);
+    if (camera.position.y < 3) camera.position.y = 3; // Lock movement to ground plane
     movement.normalize().multiplyScalar(speed * delta);
 
     if (keys["w"]) camera.position.add(movement);
