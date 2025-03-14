@@ -1,17 +1,21 @@
-import { OrbitControls } from "@react-three/drei";
-import { Avatar } from "./Avatar";
 import { useControls } from "leva";
+import { usePlane } from "@react-three/cannon";
+
+const Floor = (props) => {
+  //const [ref] = usePlane((index) => ({ type: "Static", mass: 0, ...props }));
+
+  return (
+    <mesh>
+      <planeGeometry args={[100, 100]} />
+      <meshStandardMaterial color={props.color} />
+    </mesh>
+  );
+};
 
 export const Experience = () => {
   return (
     <>
-      <OrbitControls />
-      <mesh>
-        <group position-y={-1}>
-          <Avatar/>
-        </group>
-        <ambientLight intensity={1} />
-      </mesh>
+      <Floor />
     </>
   );
 };
