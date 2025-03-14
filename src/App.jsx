@@ -60,8 +60,8 @@ export default function App() {
       <ambientLight intensity={1} />
       <directionalLight position={[10, 10, 10]} />
       <PlayerControls />
-      <BioTech position={[0, -1, 0]} />
-      {/*<KitCSE position={[0, -10, 0]} />*/}
+      <BioTech position={[20, -1, 20]} />
+      <KitCSE position={[0, -10, 0]} />
     </Canvas>
   );
 }
