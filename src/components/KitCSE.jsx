@@ -7,11 +7,20 @@ import React from "react";
 import { useGraph } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
+import { useEffect } from "react";
+import * as THREE from "three";
 
 export function KitCSE(props) {
   const { scene } = useGLTF("/models/KitCSE.glb");
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
+
+  useEffect(() => {
+    Object.values(materials).forEach((mat) => {
+      mat.side = THREE.DoubleSide;
+    });
+  }, []);
+
   return (
     <group {...props} dispose={null}>
       <group name="Scene">
